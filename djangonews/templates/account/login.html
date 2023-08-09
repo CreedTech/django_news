@@ -1,0 +1,16 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+{% if user.is_authenticated %}
+Signed in.
+{% else %}
+<h2>Login</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">login</button>
+</form>
+</br>
+<a href="{% url 'account_reset_password' %}">Forgot your password?</a>
+{% endif %}
+{% endblock content %}

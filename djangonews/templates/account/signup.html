@@ -1,0 +1,16 @@
+{% extends "account/base.html" %}
+
+{% block content %}
+<article class="site-content-dense">
+<h2>Create Account</h2>
+
+<form method="post">
+  {% csrf_token %}
+  <table>
+  {{ form.as_p }}
+  </table>
+  <button type="submit">create account</button>
+  <p class="smaller">By signing up, you agree to <a href="{% url 'zen' %}">The Zen of Django News</a>.</p>
+</form>
+</article>
+{% endblock content %}
